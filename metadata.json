@@ -1,0 +1,6 @@
+{
+  "name": "Fan-Voice Commentary Box",
+  "description": "An interactive sports commentary dashboard powered by Gemini. It transforms play-by-play events into highly passionate commentaries from custom commentator personas, featuring real-time sentiment analysis, match tension dashboards, vocal synthesis, and a stadium soundboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

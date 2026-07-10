@@ -275,7 +275,7 @@ export default function CommentaryCard({
       {/* Main Broadcast Commentary Output */}
       <div id="live-microphone-box" className="flex-1 flex flex-col gap-5 relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2.5">
             <Radio className={`w-4 h-4 ${isSpeaking ? "text-red-500 animate-pulse" : "text-gray-400"}`} />
             <span className="text-xs font-black uppercase text-gray-400 tracking-widest">
               Live Commentary Feed
@@ -283,6 +283,12 @@ export default function CommentaryCard({
             {isSpeaking && (
               <span className="text-[9px] font-black bg-red-500 text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider indicator-glow">
                 ON AIR
+              </span>
+            )}
+            {commentary && (commentary as any).isLocalFallback && (
+              <span className="text-[9px] font-black bg-amber-400 text-black px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 border border-black/10 shadow-[1px_1px_0px_rgba(0,0,0,1)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
+                Local Relay
               </span>
             )}
           </div>
@@ -657,6 +663,11 @@ export default function CommentaryCard({
                       <span className="mt-2 text-[9px] font-black uppercase tracking-widest bg-emerald-500 text-white px-2.5 py-0.5 rounded-full">
                         {auditResult.verdict}
                       </span>
+                      {auditResult.isLocalFallback && (
+                        <span className="mt-1 text-[8px] font-black uppercase tracking-widest bg-amber-400 text-black px-1.5 py-0.5 rounded border border-black/10">
+                          Relay Audit
+                        </span>
+                      )}
                     </div>
 
                     {/* Metric Bars / Right Column */}
